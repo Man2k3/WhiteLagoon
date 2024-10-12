@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WhiteLagoon.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using WhiteLagoon.Infrastructure.Data;
 namespace WhiteLagoon.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241012035033_addTableAmenity")]
+    partial class addTableAmenity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -186,7 +189,7 @@ namespace WhiteLagoon.Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("WhiteLagoon.Domain.Entities.VillaNumber", b =>
+            modelBuilder.Entity("WhiteLagoon.Domain.Entities.amenities", b =>
                 {
                     b.Property<int>("Villa_Number")
                         .HasColumnType("int");
@@ -201,7 +204,7 @@ namespace WhiteLagoon.Infrastructure.Migrations
 
                     b.HasIndex("VillaId");
 
-                    b.ToTable("VillaNumbers");
+                    b.ToTable("amenitiess");
 
                     b.HasData(
                         new
@@ -262,7 +265,7 @@ namespace WhiteLagoon.Infrastructure.Migrations
                     b.Navigation("Villa");
                 });
 
-            modelBuilder.Entity("WhiteLagoon.Domain.Entities.VillaNumber", b =>
+            modelBuilder.Entity("WhiteLagoon.Domain.Entities.amenities", b =>
                 {
                     b.HasOne("WhiteLagoon.Domain.Entities.Villa", "Villa")
                         .WithMany()
